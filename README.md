@@ -1,5 +1,4 @@
-# mandle-example
-
+# nix-container-python-mandle
 This directory is a full example of using the docker-centos-nix-python template to
 containerize a very simple Python3 app.
 
