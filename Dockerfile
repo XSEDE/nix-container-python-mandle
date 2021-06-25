@@ -1,5 +1,23 @@
 FROM xsede/centos-nix-base:latest
 
+################## METADATA ######################
+
+LABEL base_image="nix-python-mandle:v0.0.1"
+LABEL version="0.0.1"
+LABEL software="Mandle"
+LABEL software.version="1.0.0"
+LABEL about.summary="A simple Mandlebrot zoom-in gif generator"
+LABEL about.home="https://github.com/XSEDE/nix-container-python-mandle"
+LABEL about.documentation="https://github.com/XSEDE/nix-container-python-mandle"
+LABEL about.license_file="https://github.com/XSEDE/nix-container-python-mandle"
+LABEL about.license="MIT"
+LABEL about.tags="example-container" 
+LABEL extra.binaries="/apps/zoom_mandle.py"
+
+################## MAINTAINER ######################
+MAINTAINER Eric Coulter <jecoulte@iu.edu>
+
+################## ENVIRONMENT ######################
 SHELL ["/bin/bash", "-c"]
 
 USER root
@@ -8,6 +26,7 @@ ENV NIXENV "/root/.nix-profile/etc/profile.d/nix.sh"
 
 RUN mkdir -p /root/.config/nixpkgs/
 
+################## INSTALLATION ######################
 COPY config.nix /root/.config/nixpkgs/
 COPY dev.nix /root/
 COPY prod-env.nix /root/
