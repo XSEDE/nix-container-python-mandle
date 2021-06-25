@@ -2,6 +2,20 @@ Bootstrap: docker-daemon
 From: jec/python-mandle:latest
 # BE SURE TO REPLACE THE ABOVE WITH YOUR USERNAME AND IMAGE NAME
 
+%labels 
+  base_image "nix-python-mandle:v0.0.1"
+  version "0.0.1"
+  software "Mandle"
+  software.version "1.0.0"
+  about.summary "A simple Mandlebrot zoom-in gif generator"
+  about.home "https://github.com/XSEDE/nix-container-python-mandle"
+  about.documentation "https://github.com/XSEDE/nix-container-python-mandle"
+  about.license_file "https://github.com/XSEDE/nix-container-python-mandle"
+  about.license "MIT"
+  about.tags "example-container" 
+  extra.binaries "/apps/zoom_mandle.py"
+  maintainer "Eric Coulter <jecoulte@iu.edu>"
+
 %post
  chmod a+x /apps/zoom_mandle.py
 
